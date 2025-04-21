@@ -13,9 +13,7 @@ We will not test with an empty string as an argument.
 You will display the modified text, preserving the rest of the input.
 
 Example:
-$> echo "The secret word
-
-is hidden in this text." | ./filter secret  
+$> echo "The secret word is hidden in this text." | ./filter secret  
 The ****** word is hidden in this text.
 
 $> echo "banana banana apple" | ./filter banana  
