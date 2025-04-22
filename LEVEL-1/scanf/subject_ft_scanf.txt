@@ -1,5 +1,5 @@
 ft_scanf:
-Allowed functions: fgetc, ungetc, ferror, isspace, isdigit, stdin, va_start_, va_arg ...
+Allowed functions: fgetc, ungetc,feof , ferror, isspace, isdigit, stdin, va_start_, va_arg ...
 ----------------------------------------------------------------------------------------
 
 Write a function  namd `ft_scanf` that will mimic the real scanf

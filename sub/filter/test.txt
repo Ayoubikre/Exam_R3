@@ -1,0 +1,17 @@
+echo '1234567890' | ./a.out 1
+*234567890
+
+echo 'abc secret xyz secret 123 secret' | ./a.out secret
+abc ****** xyz ****** 123 ******
+
+echo 'topsecret' | ./a.out topsecret
+*********
+
+echo 'no match here' | ./a.out xyz
+no match here
+
+echo 'abcdefghij' | ./a.out def
+abc***ghij
+
+echo 'aaaaa' | ./a.out aa
+****a

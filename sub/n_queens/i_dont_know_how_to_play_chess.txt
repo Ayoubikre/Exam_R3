@@ -1,0 +1,15 @@
+A chess board is an array of size 8x8 (in this exercise we consider boards of size nxn)
+A queen is a piece which can be on any square of the board.
+A queen can take another piece if that piece is on the same row, on the same column
+or on the same 45 degrees diagonal line.
+
+For example on the following board, the queen Q can take the pieces A, B or C but not D or E.
+
+. . . . . . . .
+. . C . . D . .
+. . . . . . . .
+. . Q . B . . .
+. . . . . . . .
+. . . . . . . .
+. E . . . A . .
+. . . . . . . .
