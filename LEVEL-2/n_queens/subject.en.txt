@@ -70,3 +70,38 @@ $> ./n_queens 7 | cat -e
 6 3 0 4 1 5 2$
 6 4 2 0 5 3 1$
 $>
+
+
+
+// -----------------
+
+Chess composer Max Bezzel published the eight queens puzzle in 1848. Franz
+Nauck published the first solutions in 1850. Nauck also extended the puzzle to
+the n queens problem, with n queens on a chessboard of nXn squares.
+
+This is how Nauck describe the problem:
+
+The Eight Queens Problem.
+One of the classical problems connected with a chess-board is the determination
+of the number of ways in which eight queens can be placed on a chess-board, or
+more generally, in which n queens can be placed on a board of n² cells so that
+no queen can take any other.
+
+A chess board is an array of size 8x8 (in this exercise we consider boards of size nxn)
+A queen is a piece which can be on any square of the board.
+A queen can take another piece if that piece is on the same row, on the same column
+or on the same 45 degrees diagonal line.
+
+For example on the following board, the queen Q can take the pieces A, B or C but not D or E.
+
+. . . . . . . .
+. . C . . D . .
+. . . . . . . .
+. . Q . B . . .
+. . . . . . . .
+. . . . . . . .
+. E . . . A . .
+. . . . . . . .
+
+
+
