@@ -8,4 +8,4 @@ Write a function  namd `ft_scanf` that will mimic the real scanf
 - You don't have to handle the type modifier characters
 
 Your function must be declared :
-int ft_scanf(const char *, ...)
+int ft_scanf(const char *str, ...)
