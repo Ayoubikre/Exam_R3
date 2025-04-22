@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <ctype.h>
                                     // chatgbt:
-                                    
+
 int match_space(FILE *f)
 {
     int c;
@@ -149,4 +149,21 @@ int ft_scanf(const char *format, ...)
     int ret = ft_vfscanf(stdin, format, ap);
     va_end(ap);
     return ret;
+}
+
+int main()
+{
+    int n=0;
+
+    int i=0;
+    char c='.';
+    char t[100];
+
+    // n=ft_scanf("%d %s", &i, t);
+    // printf("%d - %s", i, t);
+    
+    n=ft_scanf("%s %d", t , &i);
+    printf("%s - %d", t , i);
+
+    printf("\n>%d<\n", n);
 }
