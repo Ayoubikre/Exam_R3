@@ -1,7 +1,6 @@
 #include <stdarg.h>
 #include <stdio.h>
 #include <ctype.h>
-                                    // chatgbt:
 
 int match_space(FILE *f)
 {

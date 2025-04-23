@@ -1,8 +1,6 @@
 #include <stdarg.h>
 #include <stdio.h>
 #include <ctype.h>
-                                     // github:
-                                    
                        
 void skip_input_space()
 {
