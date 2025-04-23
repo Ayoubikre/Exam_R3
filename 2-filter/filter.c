@@ -3,17 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   filter.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aakritah <aakritah@student.42.fr>          +#+  +:+       +#+        */
+/*   By: noctis <noctis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 13:05:40 by mlaffita          #+#    #+#             */
-/*   Updated: 2025/04/23 20:46:41 by aakritah         ###   ########.fr       */
+/*   Updated: 2025/04/23 22:02:06 by noctis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+									// Mine:
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
-													// Mine:
+
 int	ft_strlen(char *t)
 {
 	int	i;

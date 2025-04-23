@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   s.c                                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aakritah <aakritah@student.42.fr>          +#+  +:+       +#+        */
+/*   By: noctis <noctis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 12:42:43 by aakritah          #+#    #+#             */
-/*   Updated: 2025/04/23 18:28:13 by aakritah         ###   ########.fr       */
+/*   Updated: 2025/04/23 22:01:56 by noctis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-													// Mine:
+									// Mine:
 
 #include <stdarg.h>
 #include <stdio.h>
