@@ -80,6 +80,7 @@ int ft_vfscanf(FILE *f, const char *format, va_list ap)
 			break;
 		format++;
 	}
+	
 	if (ferror(f))
 		return EOF;
 	return nconv;
