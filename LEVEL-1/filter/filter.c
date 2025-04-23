@@ -6,7 +6,7 @@
 /*   By: aakritah <aakritah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 13:05:40 by mlaffita          #+#    #+#             */
-/*   Updated: 2025/04/23 18:54:16 by aakritah         ###   ########.fr       */
+/*   Updated: 2025/04/23 20:46:41 by aakritah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ int	main(int ac, char **ar)
 	else
 	{
 		i = 0;
-		n = 0;
+		n = 0; 
 		j = 0;
 		s = ft_strlen(ar[1]);
 		t1=malloc(100001);
