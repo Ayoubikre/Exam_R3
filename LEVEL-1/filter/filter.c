@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   filter.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: noctis <noctis@student.42.fr>              +#+  +:+       +#+        */
+/*   By: aakritah <aakritah@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 13:05:40 by mlaffita          #+#    #+#             */
-/*   Updated: 2025/04/21 22:56:47 by noctis           ###   ########.fr       */
+/*   Updated: 2025/04/23 18:54:16 by aakritah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
-
+													// Mine:
 int	ft_strlen(char *t)
 {
 	int	i;
@@ -62,24 +62,17 @@ int	ft_check(char *t1, char *t2)
 	return (1);
 }
 
-void	ft_error(void)
-{
-	write(2, "ERROR:", 6);
-	perror("try again");
-}
-
 int	main(int ac, char **ar)
 {
-	char	t1[100000];
+	char	*t1;
 	int		i;
 	int		n;
 	int		j;
 	int		s;
-	int		s2;
 
 	if (ac != 2)
 	{
-		ft_error();
+		perror("ERROR:");
 		return (1);
 	}
 	else
@@ -88,12 +81,17 @@ int	main(int ac, char **ar)
 		n = 0;
 		j = 0;
 		s = ft_strlen(ar[1]);
+		t1=malloc(100001);
+		if(!t1)
+			return 1;
 		n = read(0, t1, 100000);
 		if (n <= 0)
 		{
-			ft_error();
+			free(t1);
+			perror("ERROR:");
 			return (1);
 		}
+		t1[n] = '\0'; 
 		while (t1[i])
 		{
 			if (ft_check(t1 + i, ar[1]) == 1)
@@ -108,7 +106,7 @@ int	main(int ac, char **ar)
 			i++;
 		}
 	}
-	s2 = ft_strlen(t1);
-	write(1, t1, s2);
+	write(1, t1, n);
+	free(t1);
 	return (0);
 }
