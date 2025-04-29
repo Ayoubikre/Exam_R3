@@ -6,7 +6,7 @@
 /*   By: noctis <noctis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 13:05:13 by mlaffita          #+#    #+#             */
-/*   Updated: 2025/04/23 22:02:01 by noctis           ###   ########.fr       */
+/*   Updated: 2025/04/29 19:21:07 by noctis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ char    *ft_strdup(const char *str)
 char    *get_next_line(int fd)
 {
     static char    buffer[BUFFER_SIZE];
-    char        line[70000];
+    char        line[100001];
     static int    n;
     static int    b_pos;
     int            i;
@@ -57,10 +57,14 @@ char    *get_next_line(int fd)
             n = read(fd, buffer, BUFFER_SIZE);
             b_pos = 0;
             if (n <= 0)
+            {
+                n=0;
+                b_pos=0;
                 break ;
+            }
         }
         line[i++] = buffer[b_pos++];
-        if (buffer[b_pos - 1] == '\n')
+        if (buffer[b_pos - 1] == '\n'|| i>100000)
             break ;
     }
     line[i] = '\0';
