@@ -54,20 +54,20 @@ $> echo "banana banana apple" | ./filter banana
 
 Memory management is important: any allocated memory must be freed properly.
 
-echo '1234567890' | ./a.out 1
+echo '1234567890' | ./filter 1
 *234567890
 
-echo 'abc secret xyz secret 123 secret' | ./a.out secret
+echo 'abc secret xyz secret 123 secret' | ./filter secret
 abc ****** xyz ****** 123 ******
 
-echo 'topsecret' | ./a.out topsecret
+echo 'topsecret' | ./filter topsecret
 *********
 
-echo 'no match here' | ./a.out xyz
+echo 'no match here' | ./filter xyz
 no match here
 
-echo 'abcdefghij' | ./a.out def
+echo 'abcdefghij' | ./filter def
 abc***ghij
 
-echo 'aaaaa' | ./a.out aa
+echo 'aaaaa' | ./filter aa
 ****a

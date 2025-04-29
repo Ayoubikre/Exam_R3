@@ -6,109 +6,142 @@
 /*   By: noctis <noctis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 13:05:40 by mlaffita          #+#    #+#             */
-/*   Updated: 2025/04/23 22:02:06 by noctis           ###   ########.fr       */
+/*   Updated: 2025/04/29 21:31:33 by noctis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-									// Mine:
+// Mine:
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
 
-int	ft_strlen(char *t)
-{
-	int	i;
+#ifndef BUFFER_SIZE
+# define BUFFER_SIZE 42
+#endif
 
-	i = 0;
-	while (t[i])
-		i++;
-	return (i);
+char    *ft_strdup(const char *str)
+{
+    char    *t;
+    int        i;
+    int        s;
+
+    s=0;
+    while(str[s])
+        s++;
+        
+    t = malloc(s + 1);
+    if (t == NULL)
+        return (perror("ERROR : "), NULL);
+        
+    i = 0;
+    while (str[i] != '\0')
+    {
+        t[i] = str[i];
+        i++;
+    }
+    t[i] = '\0';
+    
+    return (t);
 }
 
-char	*ft_strdup(char *t)
+char	*ft_get_next_line(int fd)
 {
-	int		i;
-	int		s;
-	char	*str;
+	static 	char	t[BUFFER_SIZE];
+			char	line[100001];
+	static 	int		a;
+	static 	int		z;
+			int		i;
 
-	i = 0;
-	s = ft_strlen(t);
-	str = malloc(s + 1);
-	if (!str)
+	if (fd < 0 || BUFFER_SIZE < 1)
 		return (NULL);
-	while (t[i])
+		
+	i = 0;
+	while (1)
 	{
-		str[i] = t[i];
+		if (a >= z)
+		{
+			a = 0;
+			z = read(fd, t, BUFFER_SIZE);
+			if (z <= 0)
+			{
+				a = 0;
+				z = 0;
+				break ;
+			}
+		}
+		line[i] = t[a];
+		i++;
+		a++;
+		if (line[i - 1] == '\n' || i >= 100000)
+			break ;
+	}
+	line[i] = '\0';
+	
+	if (i == 0)
+		return (NULL);
+		
+	return (ft_strdup(line));
+}
+
+int ft_check(char *t, char *ar, int s)
+{
+	int i;
+	
+	if(!t || !ar)
+		return -1;
+
+	i=0;
+	while(i<s && t[i]==ar[i])
+		i++;
+		
+	if(i<s)
+		return -1;
+	return 1;
+}
+
+void ft_printf(char *t , char *ar)
+{
+	int i;
+	int j;
+	int s;
+	
+	s=0;
+	while(ar[s])
+		s++;
+	
+	i=0;
+	while(t[i])
+	{
+		if(ft_check(t+i, ar, s)==1)
+		{
+			j=0;
+			while(j<s)
+			{
+				t[i+j]='*';
+				j++;
+			}
+		}
+		write(1, &t[i], 1);
 		i++;
 	}
-	str[i] = '\0';
-	return (str);
-}
-
-int	ft_check(char *t1, char *t2)
-{
-	int	s1;
-	int	s2;
-	int	i;
-
-	s1 = ft_strlen(t1);
-	s2 = ft_strlen(t2);
-	i = 0;
-	if (s1 < s2)
-		return (0);
-	while (t2[i] && t2[i] == t1[i])
-		i++;
-	if (i != s2)
-		return (0);
-	return (1);
+	return;
 }
 
 int	main(int ac, char **ar)
 {
-	char	*t1;
-	int		i;
-	int		n;
-	int		j;
-	int		s;
+	char *t;
 
 	if (ac != 2)
-	{
-		perror("ERROR:");
 		return (1);
-	}
-	else
+
+	while (1)
 	{
-		i = 0;
-		n = 0; 
-		j = 0;
-		s = ft_strlen(ar[1]);
-		t1=malloc(100001);
-		if(!t1)
-			return 1;
-		n = read(0, t1, 100000);
-		if (n <= 0)
-		{
-			free(t1);
-			perror("ERROR:");
-			return (1);
-		}
-		t1[n] = '\0'; 
-		while (t1[i])
-		{
-			if (ft_check(t1 + i, ar[1]) == 1)
-			{
-				j = 0;
-				while (j < s)
-				{
-					t1[i + j] = '*';
-					j++;
-				}
-			}
-			i++;
-		}
+		t = ft_get_next_line(0);
+		if (!t)
+			break ;
+		ft_printf(t, ar[1]);
+		free(t);
 	}
-	write(1, t1, n);
-	free(t1);
 	return (0);
 }
