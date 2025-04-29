@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   s.c                                                :+:      :+:    :+:   */
+/*   scanf.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: noctis <noctis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 12:42:43 by aakritah          #+#    #+#             */
-/*   Updated: 2025/04/23 22:01:56 by noctis           ###   ########.fr       */
+/*   Updated: 2025/04/29 23:44:07 by noctis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -169,7 +169,7 @@ int ft_vfscanf(FILE *f, const char *format, va_list ap)
 
 int ft_scanf(const char *format, ...)
 {
-    va_list(ap);
+    va_list ap;
 	va_start(ap, format);
 	int ret = ft_vfscanf(stdin, format, ap);
 	va_end(ap);
@@ -178,20 +178,24 @@ int ft_scanf(const char *format, ...)
 
 int main()
 {
+	int n;
+	
 	int i=0;
 	char c='!';
 	char t[100];
+		
+	n=ft_scanf("%s a%d", t, &i);
 	
-	int n=ft_scanf("%d  %s ", &i , t);
-	// int n=scanf("%d  %s", &i , t);
+	printf("\n c : %c \n i : %d \n s : %s\n",c , i , t);
+	printf("\t> R : %d<\n", n);
 
-	// int n=ft_scanf("%d aaa %s", &i , t);
-	// int n=scanf("%d aaa %s", &i , t);
 	
-	// ft_scanf("%dabc%c", &i, &c);
-	// ft_scanf("%d abc %c", &i, &c);
 	
-	printf("\n i > %d \n s > %s", i , t);
-	printf("\n>%d<\n", n);
+	// n=scanf("%s a%d", t, &i);
+
+	// printf("\n c : %c \n i : %d \n s : %s\n",c , i , t);
+	// printf("\t> R : %d<\n", n);
+
 
 }
+
